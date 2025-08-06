@@ -1,0 +1,30 @@
+{
+    "welcome": "Hoşgeldiniz!",
+    "description": "Temu gibi harika fırsatları keşfedin!",
+    "products": [
+        {
+        "name": "Pamuklu Tişört",
+        "description": "Günlük kullanım için yumuşak ve nefes alabilir tişört."
+        },
+        {
+        "name": "Kablosuz Kulaklık",
+        "description": "Uzun pil ömrü ile yüksek kaliteli ses deneyimi."
+        },
+        {
+        "name": "Akıllı Saat",
+        "description": "Fitness, kalp atışı ve daha fazlasını takip edin."
+        },
+        {
+        "name": "Sırt Çantası",
+        "description": "İş veya okul için şık ve geniş çanta."
+        },
+        {
+        "name": "Test",
+        "description": "Test - İş veya okul için şık ve geniş çanta."
+        },
+        {
+        "name": "Test 2",
+        "description": "Test - İş veya okul için şık ve geniş çanta."
+        }
+    ]
+}

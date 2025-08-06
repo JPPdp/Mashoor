@@ -1,0 +1,22 @@
+{
+    "welcome": "Welcome!",
+    "description": "Discover amazing deals like Temu!",
+    "products": [
+        {
+        "name": "Cotton T-Shirt",
+        "description": "Soft and breathable shirt for daily wear."
+        },
+        {
+        "name": "Wireless Earbuds",
+        "description": "High-quality sound with long battery life."
+        },
+        {
+        "name": "Smart Watch",
+        "description": "Track fitness, heart rate, and more."
+        },
+        {
+        "name": "Backpack",
+        "description": "Stylish and spacious, perfect for work or school."
+        }
+    ]
+}
