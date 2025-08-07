@@ -12,13 +12,9 @@ export default function Page() {
 
   const lang = pathname.split('/')[1] === 'tr' ? 'tr' : 'en';
   const t = getLangData(lang);
-
   const searchQuery = searchParams.get('search')?.toLowerCase() || '';
-
-  // Shuffle products once
   const shuffledProducts = shuffleArray(mockProducts);
 
-  // Filter based on translated text
   const filteredProducts = shuffledProducts.filter((product) => {
     const translated =
       t.products[product.id - 1] ??
@@ -31,7 +27,7 @@ export default function Page() {
   });
 
   return (
-    <main className="w-full px-4 py-10 max-w-screen-xl mx-auto">
+    <main className="px-4 py-10 bg-gray-950 min-h-screen">
       {searchQuery && (
         <p className="mb-4 text-sm text-gray-500">
           Showing results for: <span className="font-semibold">{searchQuery}</span>
@@ -41,7 +37,7 @@ export default function Page() {
       {filteredProducts.length === 0 ? (
         <p className="text-center text-gray-400">No products found.</p>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredProducts.map((product) => {
             const translated =
               t.products[product.id - 1] ??
@@ -63,3 +59,4 @@ export default function Page() {
     </main>
   );
 }
+
