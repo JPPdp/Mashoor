@@ -6,8 +6,7 @@ import { mockProducts } from '../data/mockProducts';
 import { shuffleArray } from '../utils/shuffle';
 export const FavoritesPanel = () => {
     const { favorites, showPanel, togglePanel } = useFavorites();
-    const shuffledProducts = shuffleArray(mockProducts);
-    
+
     if (!showPanel) return null;
 
     return (
@@ -43,10 +42,10 @@ export const FavoritesPanel = () => {
                     </div>
                     <div className="p-4">
                     <p className="font-semibold text-sm text-gray-800 opacity-60 dark:text-white line-clamp-2">
-                        {product.name}
+                        {product.name + ' - ' + product.id}
                     </p>
                     <p className="text-red-500 font-bold mt-2 text-base">
-                        ${'0.00'}
+                        ${product.price ? product.price : '0.00'}
                     </p>
                     </div>
                 </div>

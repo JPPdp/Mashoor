@@ -2,9 +2,10 @@
 'use client';
 
 import { useState } from 'react';
-import { HeartIcon } from '@heroicons/react/24/solid';
+import { HeartIcon, ShoppingCartIcon } from '@heroicons/react/24/solid';
 import { ProductPreviewModal } from './ProductPreviewModal';
 import { useFavorites } from './FavoritesContext';
+import { useCart } from './CartContext';
 
 interface ProductCardProps {
     id: number;
@@ -23,7 +24,7 @@ export function ProductCard({
 }: ProductCardProps) {
     const [open, setOpen] = useState(false);
     const { favorites, toggleFavorite } = useFavorites();
-
+    const { addToCart } = useCart();
     const isFavorited = favorites.some((p) => p.id === id);
 
     return (
@@ -41,7 +42,7 @@ export function ProductCard({
             className="absolute top-2 right-2 z-10"
             onClick={(e) => {
               e.stopPropagation(); // prevent modal opening
-              toggleFavorite({ id, name }); // Add more fields if needed
+              toggleFavorite({ id, name, price }); // Add more fields if needed
             }}
             >
                 <HeartIcon
@@ -51,9 +52,22 @@ export function ProductCard({
                 />
             </button>
         </div>
-        <h2 className="text-sm font-semibold text-gray-800 truncate">{name}</h2>
-        <p className="text-xs text-gray-500 mb-1 line-clamp-2">{description}</p>
-        <p className="text-lg font-bold text-orange-500">{price}</p>
+            <h2 className="text-sm font-semibold text-gray-800 truncate">{name + ' - ' + id}</h2>
+            <p className="text-xs text-gray-500 mb-1 line-clamp-2">{description}</p>
+            <p className="text-lg font-bold text-orange-500">{price}</p>
+            {/* Add to Cart Button */}
+            <button
+                onClick={(e) => {
+                    e.stopPropagation(); // prevent modal
+                    addToCart({ id, name, price, image, description });
+                }}
+                className="mt-2 w-full bg-orange-500 text-white py-1.5 rounded text-sm font-medium hover:bg-orange-600 transition"
+                >
+                <div className="flex items-center justify-center gap-2">
+                    <ShoppingCartIcon className="w-4 h-4" />
+                    Add to Cart
+                </div>
+            </button>
         </div>
 
         {open && (

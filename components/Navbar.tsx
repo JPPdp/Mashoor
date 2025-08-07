@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useFavorites } from './FavoritesContext';
+import { useCart } from './CartContext';
+import { HeartIcon, ShoppingCartIcon } from '@heroicons/react/24/solid';
+
 
 export function Navbar() {
     const router = useRouter();
@@ -11,7 +14,7 @@ export function Navbar() {
     const currentLang = pathname.startsWith('/tr') ? 'tr' : 'en';
     const [open, setOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-
+    const { cart, toggleCart } = useCart();
     const { togglePanel, favorites } = useFavorites();
 
     const changeLang = (lang: 'en' | 'tr') => {
@@ -86,15 +89,23 @@ export function Navbar() {
                 </button>
             </form>
 
-            {/* Favorites Button */}
-            <button
-                onClick={togglePanel}
-                className="bg-white text-orange-500 font-semibold px-4 py-2 rounded hover:bg-orange-100 transition"
-            >
-                ❤️ Favorites ({favorites.length})
-            </button>
+                    {/* Favorites Button */}
+                    <button
+                        onClick={togglePanel}
+                        className="bg-white text-orange-500 font-semibold px-4 py-2 rounded hover:bg-orange-100 transition">
+                        ❤️ Favorites ({favorites.length})
+                    </button>
+
+                    <button onClick={toggleCart} className="relative">
+                        <ShoppingCartIcon className="w-6 h-6" />
+                            {cart.length > 0 && (
+                            <span className="absolute -top-1 -right-2 text-xs bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                                {cart.length}
+                            </span>
+                        )}
+                    </button>
+                </div>
             </div>
-        </div>
         </nav>
     );
 }
