@@ -5,10 +5,12 @@ A multi-language Temu-style product landing page built with Next.js 15, Tailwind
 ## Features
 - English / Turkish language support
 - Product search and favorites (Redux)
+- SSR
 - SEO optimized (meta, OG, JSON-LD)
 - Dark mode
 - Tailwind + shadcn/ui
 - Atomic Design structure
+- 404 & 500 error
 - Mock product data
 
 ## Setup
