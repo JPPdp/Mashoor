@@ -72,7 +72,9 @@ export function ProductCard({
 
         {open && (
             <ProductPreviewModal
+            id={id}
             name={name}
+            image={image}
             description={description}
             price={price}
             onClose={() => setOpen(false)}

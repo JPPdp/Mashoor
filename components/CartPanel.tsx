@@ -41,7 +41,7 @@ export const CartPanel = () => {
                     className="flex items-center justify-between border-b pb-2"
                     >
                     <div>
-                        <p className="font-semibold">{item.name}</p>
+                        <p className="font-semibold text-gray-500">{item.name}</p>
                         <p className="text-sm text-red-500">{item.price}</p>
                     </div>
                     <button
@@ -57,17 +57,17 @@ export const CartPanel = () => {
         </div>
 
             {/* Footer */}
-            {cart.length > 0 && (
-            <div className="p-4 border-t">
-                <button
-                onClick={clearCart}
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition"
-                >
-                Checkout
-                </button>
+                {cart.length > 0 && (
+                <div className="p-4 border-t">
+                    <button
+                    onClick={clearCart}
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    >
+                    Checkout
+                    </button>
+                </div>
+                )}
             </div>
-            )}
-        </div>
         </div>
     );
 };
